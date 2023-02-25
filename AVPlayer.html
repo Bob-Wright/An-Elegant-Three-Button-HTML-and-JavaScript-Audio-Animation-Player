@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AVPlayer</title><script> //if we have javascript then remove no-js class from html\ndocument.documentElement.classList.remove("no-js")\n</script><meta NAME="Last-Modified" CONTENT="January 28 2023 20:48."><meta name="copyright" content="Site design and code Copyright 2021 by IsoBlock.com, Artistic Content Copyright 2021 by Bob Wright">	<meta name="description" content="A Storybook Web Comic">
+	<meta name="generator" content ="IsoBlock Synthetic Reality Storybook Comic Book Builder">
+	<meta name="author" content="Bob Wright">
+	<meta name="keywords" content="comics,images,art,graphics,illustration">
+	<meta name="rating" content="general">
+	<meta name="robots" content="index, follow"/> <meta property="og:url" content="https://syntheticreality.net/Comics/AVPlayer.html" ><meta property="og:type" content="website" ><meta property="og:title" content= "AVPlayer" ><meta property="og:description" content="A comic by Bob Wright"><meta property="og:image" content="https://syntheticreality.net/Comics/AVPlayerOGIMG.jpg" ><meta property="og:image:type"       content="image/jpg" ><meta property="og:image:width"      content="1800" ><meta property="og:image:height"     content="960" >
+	<!-- <meta property="fb:app_id" content="1297101973789783" > -->
+	<base href="https://syntheticreality.net/Comics/">
+	<link href="https://syntheticreality.net/Comics/AVPlayer.html" rel="canonical" Content-Type="text/html">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="./css/bootstrap51.min.css">
+    <!--    <link rel="manifest" href="site.webmanifest"> -->
+	<link rel="icon" href="./favicon.ico" type="image/ico"/>
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"/>
+	<script>
+// safari mobile does not display AVIF animation files
+window.addEventListener("load", () => {
+    //console.info("index "+navigator.userAgent.indexOf("Edg"));
+    console.info("user agent "+navigator.userAgent);
+  if ((navigator.userAgent.indexOf("iPhone") != -1 ) || (navigator.userAgent.indexOf("Firefox") != -1 )) {
+	  console.info("its an iPhone or Firefox");
+              window.location.replace("https://syntheticreality.net/Comics/AVPlayers.html");
+  } else {
+    console.info("not an iPhone or Firefox");
+  }
+  });
+</script>
+<style>
+* {
+ box-sizing: border-box;
+}@font-face {font-family: "Merriweather-Regular"; src: url("./Fonts/Merriweather-Regular.ttf") format("truetype");} @media screen and (max-width: 576px) {   .card-body, p { font: 3.5vw Merriweather-Regular; color: #000000;}} @media screen and (min-width: 577px) and (max-width: 1079px) { .card-body, p { font: 2.5vw Merriweather-Regular; color: #000000;}}  @media screen and (min-width: 1080px) { .card-body, p { font: 2vw Merriweather-Regular; color: #000000;}}@font-face {font-family: "MerriweatherSans-ExtraBold"; src: url("./Fonts/MerriweatherSans-ExtraBold.ttf") format("truetype");} @media screen and (max-width: 576px) {   h1 { font: 5vw MerriweatherSans-ExtraBold; color: #000000;} h2 { font: 4vw MerriweatherSans-ExtraBold; color: #000000;} h3 { font: 3.5vw MerriweatherSans-ExtraBold; color: #000000;}} @media screen and (min-width: 577px) and (max-width: 1079px) {h1 { font: 4vw MerriweatherSans-ExtraBold; color: #000000;} h2 { font: 3.5vw MerriweatherSans-ExtraBold; color: #000000;} h3 { font: 3vw MerriweatherSans-ExtraBold; color: #000000;}}  @media screen and (min-width: 1080px) {h1 { font: 3vw MerriweatherSans-ExtraBold; color: #000000;} h2 { font: 2.5vw MerriweatherSans-ExtraBold; color: #000000;} h3 { font: 2.2vw MerriweatherSans-ExtraBold; color: #000000;}}.xmplc {background: #FFC0CB;}.xmpla { @font-face {font-family: "Roboto-Regular"; src: url("./Fonts/Roboto-Regular.ttf") format("truetype");} @media screen and (max-width: 576px) {   .card-body, p { font: 3.5vw Roboto-Regular; color: #000000;}} @media screen and (min-width: 577px) and (max-width: 1079px) { .card-body, p { font: 2.5vw Roboto-Regular; color: #000000;}}  @media screen and (min-width: 1080px) { .card-body, p { font: 2vw Roboto-Regular; color: #000000;}} }.xmpla { @font-face {font-family: "RobotoSlab-Bold"; src: url("./Fonts/RobotoSlab-Bold.ttf") format("truetype");} @media screen and (max-width: 576px) {   h1 { font: 5vw RobotoSlab-Bold; color: #000000;} h2 { font: 4vw RobotoSlab-Bold; color: #000000;} h3 { font: 3.5vw RobotoSlab-Bold; color: #000000;}} @media screen and (min-width: 577px) and (max-width: 1079px) {h1 { font: 4vw RobotoSlab-Bold; color: #000000;} h2 { font: 3.5vw RobotoSlab-Bold; color: #000000;} h3 { font: 3vw RobotoSlab-Bold; color: #000000;}}  @media screen and (min-width: 1080px) {h1 { font: 3vw RobotoSlab-Bold; color: #000000;} h2 { font: 2.5vw RobotoSlab-Bold; color: #000000;} h3 { font: 2.2vw RobotoSlab-Bold; color: #000000;}} }.xmpla {background: #DB7093;}.playButton {
+ display: block;
+ background-color: rgba(128, 128, 128, .8);
+ z-index: 30;
+ opacity: 1;
+ border: .3vw solid cyan;
+}
+.MP3Overlay {
+ display: block;
+ background-color: rgba(128, 128, 128, .8);
+ z-index: 30;
+ opacity: 1;
+ border: .3vw solid cyan;
+}
+.transcriptControl {
+ display: block;
+ background-color: rgba(128, 128, 128, .8);
+ z-index: 30;
+ opacity: 1;
+ border: .3vw solid cyan;
+}
+.transcript  {
+background-color: #b0eec0;
+}
+.imgblock img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hidepanel {
+display: none;
+}
+.showpanel {
+display: block;
+}
+a:focus, div:focus, img:focus {
+  border: .05vw solid black;
+  outline-style: solid;
+  outline-color: GreenYellow;
+  outline-width: .5vw;
+}@media screen and (max-width: 576px) {
+#container:before {background-image: url("./AVPlayer/AVPlayerBKGND-s.webp");}
+}
+@media screen and (min-width: 577px) and (max-width: 768px)  {
+#container:before {background-image: url("./AVPlayer/AVPlayerBKGND-m.webp");}
+}
+@media screen and (min-width: 769px) and (max-width: 992px)  {
+#container:before {background-image: url("./AVPlayer/AVPlayerBKGND-l.webp");}
+}
+@media screen and (min-width: 993px) and (max-width: 1200px)  {
+#container:before {background-image: url("./AVPlayer/AVPlayerBKGND-x.webp");}
+}
+@media screen and (min-width: 1201px) {
+#container:before {background-image: url("./AVPlayer/AVPlayerBKGND-X.webp");}
+}
+#container:before {
+	content: ' ';
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.6;
+	background-position: top center;
+	background-repeat: no-repeat;
+	-ms-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+}</style>
+
+</head>
+<!-- End of the HTML head section-->
+<!-- =========================== -->
+<!-- +++++++++++++++++++++++ -->
+<!-- Build out the page -->
+<body class="container">
+
+<!-- <script>
+async function supportsAvif() { // check for avif image support
+  const fallbackclass = 'no-avif'
+  if (!this.createImageBitmap) return fallbackclass
+
+  const avifData = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A='
+  avifblob = await fetch(avifData).then((r) => r.blob());
+  return createImageBitmap(avifblob)
+		.then(() => 'avif')
+		.catch(() => fallbackclass)
+}
+(async () => {
+  document.body.classList.add(await supportsAvif())
+})()
+</script> -->
+<h1 class="visually-hidden">AVPlayer</h1><!--#include file="./includes/browserupgrade.ssi" -->
+<main  id="container" class="row d-flex align-items-start">
+<article class="imgblock col-12 justify-content-center">
+   <nav tabindex="-1" class="row fixed-top col-1 d-flex justify-content-center" style="background-color: rgba(255,80,0,.4);"><a tabindex="0" class="d-flex justify-content-center" title="jump to the Comics gallery" href="./Comics.php">
+		<svg version="1.0" xmlns="http://www.w3.org/2000/svg"  id="comicsHome" class="bi-layout-wtf"
+		 width="4vw" height="4vw" viewBox="0 0 60.000000 42.000000" stroke="blue" stroke-width="10">
+		<g transform="translate(0.000000,42.000000) scale(0.100000,-0.100000)">
+		<path d="M467 413 c-2 -2 -32 -4 -67 -4 -53 -1 -67 -5 -87 -26 l-25 -24 -43
+		21 c-36 17 -58 20 -136 18 l-93 -3 3 -150 c1 -82 6 -153 10 -158 4 -4 24 -1
+		44 8 41 17 85 19 107 5 11 -7 6 -10 -22 -10 -40 0 -121 -31 -133 -51 -9 -13
+		-1 -12 75 16 51 19 97 14 149 -16 l34 -20 22 27 c20 25 25 26 92 22 48 -2 78
+		-9 90 -20 22 -20 73 -34 73 -20 0 5 -24 21 -53 36 -43 21 -69 26 -127 26 -65
+		0 -71 2 -59 16 13 16 35 16 197 -2 l52 -6 0 79 c0 43 5 109 10 147 6 38 7 73
+		3 77 -9 7 -110 18 -116 12z m88 -70 c-4 -26 -9 -86 -11 -133 l-3 -85 -28 1
+		c-15 1 -59 7 -97 14 -64 11 -70 11 -97 -9 -26 -20 -29 -20 -38 -3 -9 15 -10
+		15 -11 -5 0 -27 2 -27 -61 -7 -48 16 -112 15 -152 -1 -16 -7 -17 3 -17 129 l0
+		136 69 0 c70 0 149 -21 163 -43 4 -7 8 -40 8 -74 0 -35 4 -63 10 -63 6 0 10
+		30 10 69 0 52 5 74 19 92 17 23 26 24 131 27 l112 3 -7 -48z"/>
+		</g></svg></a>
+    </nav>
+
+<!-- ++++++++++++++++++++ -->
+<!--  build comic pages -->
+<!-- ++++++++++++++++++++ -->
+<span class="clickMeOverlay" id="c1" title="Click to show alternate content">
+<picture class="playGIF src" id="pic1">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-s-0921.avif" media = "(max-width: 576px)" type = "image/avif">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-m-1228.avif" media = "((min-width: 577px) and (max-width: 768px))" type = "image/avif">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-l-1587.avif" media = "((min-width: 769px) and (max-width: 992px))" type = "image/avif">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-x-1920.avif" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/avif">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-X-2240.avif" media = "(min-width: 1201px)" type = "image/avif">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-s-0921.webp" media = "(max-width: 576px)" type = "image/webp">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-m-1228.webp" media = "((min-width: 577px) and (max-width: 768px))" type = "image/webp">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-l-1587.webp" media = "((min-width: 769px) and (max-width: 992px))" type = "image/webp">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-x-1920.webp" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/webp">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-X-2240.webp" media = "(min-width: 1201px)" type = "image/webp">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-s-0921.jpg" media = "(max-width: 576px)" type = "image/jpg">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-m-1228.jpg" media = "((min-width: 577px) and (max-width: 768px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-l-1587.jpg" media = "((min-width: 769px) and (max-width: 992px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-x-1920.jpg" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/01_trilobe_flux_propulsion_unit-X-2240.jpg" media = "(min-width: 1201px)" type = "image/jpg">
+	<img tabindex="0" id="s1" class="playGIF src" src = "./AVPlayer/01_trilobe_flux_propulsion_unit-X-2240.jpg" alt = "This image is 01_trilobe_flux_propulsion_unit." style="display: block;">
+</picture>
+<picture class="playGIF alt" id="apic1">
+	<source srcset = "./AVPlayer/altImgs/01_trilobe_flux_propulsion_unit-w593-h374.avif" media = "(min-width: 320px)" type = "image/avif">
+	<source srcset = "./AVPlayer/altImgs/01_trilobe_flux_propulsion_unit-w593-h374.webp" media = "(min-width: 320px)" type = "image/webp">
+	<source srcset = "./AVPlayer/altImgs/01_trilobe_flux_propulsion_unit-w593-h374.gif" media = "(min-width: 320px)" media = "(min-width: 320px)" type = "image/gif">
+	<img tabindex="0" id="a1" class="playGIF alt" src = "./AVPlayer/altImgs/01_trilobe_flux_propulsion_unit-w593-h374.gif" alt = "The shuttlecraft lands on the asteroid." style="display: none;">
+</picture>
+</span>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div class="row">
+	<div id="b1" tabindex="0" title="show alternate content" class="playButton clickMeOverlay card col-12 d-flex flex-column px-sm-0 align-items-center">
+	<svg id="p1" title="Play Button" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-play" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+	</svg>
+	<svg id="r1" title="Reload Button" width="7vw" height="7vw"  viewBox="0 -1 16 16" class="bi bi-arrow-counterclockwise" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+	<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+	</svg>
+</div></div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div class="xmplc card col-12 d-flex shadow-md px-sm-0">
+<div tabindex="0" class="card-body" id="caption1" style="display: block;"><p>This panel shows the trilobe quantum flux concentrator propulsion unit.<br><br> For our demo, this panel uses and displays just one of the AVPlayer buttons, and that PLAY button simply launches an animation with no audio. The alternate content can also be displayed by clicking the image itself.</p>
+</div>
+<div tabindex="0" class="card-body xmpla" id="altcap1" style="display: none;"><p>This panel shows an animation of a shuttlecraft using the trilobe quantum flux concentrator propulsion unit.<br><br>On this panel, the RELOAD button just unloads the animation and returns to the original page. The original image can also be reloaded by clicking this image.</p>
+</div>
+</div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br><br></div>
+<!-- ++++++++++++++++++++ -->
+
+<span class="clickMeOverlay" id="c2" title="Click to show alternate content">
+<picture class="playGIF playMP3 src" id="pic2">
+	<source srcset = "./AVPlayer/02_oh_no-s-0921.avif" media = "(max-width: 576px)" type = "image/avif">
+	<source srcset = "./AVPlayer/02_oh_no-m-1228.avif" media = "((min-width: 577px) and (max-width: 768px))" type = "image/avif">
+	<source srcset = "./AVPlayer/02_oh_no-l-1587.avif" media = "((min-width: 769px) and (max-width: 992px))" type = "image/avif">
+	<source srcset = "./AVPlayer/02_oh_no-x-1920.avif" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/avif">
+	<source srcset = "./AVPlayer/02_oh_no-X-2240.avif" media = "(min-width: 1201px)" type = "image/avif">
+	<source srcset = "./AVPlayer/02_oh_no-s-0921.webp" media = "(max-width: 576px)" type = "image/webp">
+	<source srcset = "./AVPlayer/02_oh_no-m-1228.webp" media = "((min-width: 577px) and (max-width: 768px))" type = "image/webp">
+	<source srcset = "./AVPlayer/02_oh_no-l-1587.webp" media = "((min-width: 769px) and (max-width: 992px))" type = "image/webp">
+	<source srcset = "./AVPlayer/02_oh_no-x-1920.webp" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/webp">
+	<source srcset = "./AVPlayer/02_oh_no-X-2240.webp" media = "(min-width: 1201px)" type = "image/webp">
+	<source srcset = "./AVPlayer/02_oh_no-s-0921.jpg" media = "(max-width: 576px)" type = "image/jpg">
+	<source srcset = "./AVPlayer/02_oh_no-m-1228.jpg" media = "((min-width: 577px) and (max-width: 768px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/02_oh_no-l-1587.jpg" media = "((min-width: 769px) and (max-width: 992px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/02_oh_no-x-1920.jpg" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/02_oh_no-X-2240.jpg" media = "(min-width: 1201px)" type = "image/jpg">
+	<img tabindex="0" id="s2" class="playGIF src" src = "./AVPlayer/02_oh_no-X-2240.jpg" alt = "This image is 02_oh_no." style="display: block;">
+</picture>
+<picture class="playGIF playMP3 alt" id="apic2">
+	<source srcset = "./AVPlayer/altImgs/02_oh_no-w513-h720.avif" media = "(min-width: 320px)" type = "image/avif">
+	<source srcset = "./AVPlayer/altImgs/02_oh_no-w513-h720.webp" media = "(min-width: 320px)" type = "image/webp">
+	<source srcset = "./AVPlayer/altImgs/02_oh_no-w513-h720.gif" media = "(min-width: 320px)" media = "(min-width: 320px)" type = "image/gif">
+	<img tabindex="0" id="a2" class="playGIF alt" src = "./AVPlayer/altImgs/02_oh_no-w513-h720.gif" alt = "The shuttlecraft lands on the asteroid." style="display: none;">
+</picture>
+</span>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+	<div class="row">
+	<div tabindex="0" title="toggle audio mute" class="mute-audio card col-2 d-flex flex-column px-sm-0 MP3Overlay align-items-center">
+	<svg title="mute-audio" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-volume-mute" fill="white" stroke="red" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04L4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0z"/>
+	  <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z"/>
+	</svg>
+	<svg title="enable-audio" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-volume-up" fill="white" stroke="green" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04L4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04z"/>
+	  <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+	  <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+	  <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/>
+	</svg></div>
+	<div tabindex="0" title="toggle transcript display" class="card col-2 d-flex flex-column px-sm-0 transcriptControl align-items-center">
+	<svg style="padding-top: 1vw;" title="no-cc" xmlns="http://www.w3.org/2000/svg" width="7vw" height="7vw" stroke="red" stroke-width=".5" fill="white" class="bi bi-x-box" viewBox="0 0 16 16">
+	<path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z"/>
+	<path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+	</svg>
+	<svg title="show-cc" xmlns="http://www.w3.org/2000/svg" width="8vw" height="8vw"  stroke="blue" stroke-width=".5" fill="white" class="bi bi-badge-cc" viewBox="0 0 16 16">
+	  <path d="M3.708 7.755c0-1.111.488-1.753 1.319-1.753.681 0 1.138.47 1.186 1.107H7.36V7c-.052-1.186-1.024-2-2.342-2C3.414 5 2.5 6.05 2.5 7.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114H6.213c-.048.615-.496 1.05-1.186 1.05-.84 0-1.319-.62-1.319-1.727v-.743zm6.14 0c0-1.111.488-1.753 1.318-1.753.682 0 1.139.47 1.187 1.107H13.5V7c-.053-1.186-1.024-2-2.342-2C9.554 5 8.64 6.05 8.64 7.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114h-1.147c-.048.615-.497 1.05-1.187 1.05-.839 0-1.318-.62-1.318-1.727v-.743z"/>
+	  <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+	</svg></div>
+
+	<div id="b2" tabindex="0" title="show alternate content" class="playButton clickMeOverlay card col-8 d-flex flex-column px-sm-0 align-items-center">
+	<svg id="p2" title="Play Button" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-play" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+	</svg>
+	<svg id="r2" title="Reload Button" width="7vw" height="7vw"  viewBox="0 -1 16 16" class="bi bi-arrow-counterclockwise" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+	<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+	</svg></div>
+	</div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div id="t2" class="col-12 px-sm-0 transcript card"><p>Audio Transcript: Telephone Intercept Tones and woman saying 'oh no'.</p></div>
+<audio id="audio2" src="./AVPlayer/altImgs/02_oh_no.mp3" type="audio/mpeg" alt="Telephone Intercept Tones and woman saying 'oh no'">No Audio Support</audio>
+<div class="xmplc card col-12 d-flex shadow-md px-sm-0"><div tabindex="0" class="card-body" id="caption2" style="display: block;"><p>This panel uses all three of the AVPlayer buttons.<br><br>The first button controls audio muting and the default is muted audio. This button enables or disables the audio playback for all of the panels.<br><br>The second button aids in the important area of content accessibility. It enables or disables the display of a &#34;closed caption&#34; or text transcript description of the audio content for all of the panels.<br><br>The third button is the PLAY button and it plays the audio and animation content. The alternate content can also be displayed by clicking the image itself.</p></div><div tabindex="0" class="card-body xmpla" id="altcap2" style="display: none;"><p>This panel also uses all three of the AVPlayer buttons.<br><br>But now the third button is the RELOAD button and it reloads the audio and animation content. The original image can also be reloaded by clicking this image.</p></div></div>
+	<div class="card col-12 px-sm-0" style="opacity: 0;"><br><br></div>
+	<!-- ++++++++++++++++++++ -->
+
+<span class="clickMeOverlay" id="c3" title="Click to show alternate content">
+<picture tabindex="0" class="playGIF playMP3 src" id="pic3">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.avif" media = "(max-width: 576px)" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.avif" media = "((min-width: 577px) and (max-width: 768px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.avif" media = "((min-width: 769px) and (max-width: 992px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.avif" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.avif" media = "(min-width: 1201px)" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.webp" media = "(max-width: 576px)" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.webp" media = "((min-width: 577px) and (max-width: 768px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.webp" media = "((min-width: 769px) and (max-width: 992px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.webp" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.webp" media = "(min-width: 1201px)" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.jpg" media = "(max-width: 576px)" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.jpg" media = "((min-width: 577px) and (max-width: 768px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.jpg" media = "((min-width: 769px) and (max-width: 992px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.jpg" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.jpg" media = "(min-width: 1201px)" type = "image/jpg">
+	<img tabindex="0" id="s3" class="playGIF src" src = "./AVPlayer/03_stone_temple_monkey-X-2240.jpg" alt = "This image is 03_stone_temple_monkey." style="display: block;">
+</picture>
+<picture tabindex="0" class="playGIF playMP3 src" id="apic3">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.avif" media = "(max-width: 576px)" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.avif" media = "((min-width: 577px) and (max-width: 768px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.avif" media = "((min-width: 769px) and (max-width: 992px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.avif" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.avif" media = "(min-width: 1201px)" type = "image/avif">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.webp" media = "(max-width: 576px)" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.webp" media = "((min-width: 577px) and (max-width: 768px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.webp" media = "((min-width: 769px) and (max-width: 992px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.webp" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.webp" media = "(min-width: 1201px)" type = "image/webp">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-s-0921.jpg" media = "(max-width: 576px)" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-m-1228.jpg" media = "((min-width: 577px) and (max-width: 768px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-l-1587.jpg" media = "((min-width: 769px) and (max-width: 992px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-x-1920.jpg" media = "((min-width: 993px) and (max-width: 1200px))" type = "image/jpg">
+	<source srcset = "./AVPlayer/03_stone_temple_monkey-X-2240.jpg" media = "(min-width: 1201px)" type = "image/jpg">
+	<img tabindex="0" id="a3" class="playGIF alt" src = "./AVPlayer/03_stone_temple_monkey-X-2240.jpg" alt = "This image is 03_stone_temple_monkey." style="display: none;">
+</picture>
+</span>
+	<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+	<div class="row">
+	<div tabindex="0" title="toggle audio mute" class="mute-audio card col-2 d-flex flex-column px-sm-0 MP3Overlay align-items-center">
+	<svg title="mute-audio" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-volume-mute" fill="white" stroke="red" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04L4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04zm7.854.606a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708l4-4a.5.5 0 0 1 .708 0z"/>
+	  <path fill-rule="evenodd" d="M9.146 5.646a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0z"/>
+	</svg>
+	<svg title="enable-audio" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-volume-up" fill="white" stroke="green" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	  <path fill-rule="evenodd" d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zM6 5.04L4.312 6.39A.5.5 0 0 1 4 6.5H2v3h2a.5.5 0 0 1 .312.11L6 10.96V5.04z"/>
+	  <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+	  <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+	  <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707z"/>
+	</svg></div>
+	<div tabindex="0" title="toggle transcript display" class="card col-2 d-flex flex-column px-sm-0 transcriptControl align-items-center">
+	<svg style="padding-top: 1vw;" title="no-cc" xmlns="http://www.w3.org/2000/svg" width="7vw" height="7vw" stroke="red" stroke-width=".5" fill="white" class="bi bi-x-box" viewBox="0 0 16 16">
+	<path d="M5.18 4.616a.5.5 0 0 1 .704.064L8 7.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 8l2.233 2.68a.5.5 0 0 1-.768.64L8 8.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 8 5.116 5.32a.5.5 0 0 1 .064-.704z"/>
+	<path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+	</svg>
+	<svg title="show-cc" xmlns="http://www.w3.org/2000/svg" width="8vw" height="8vw"  stroke="blue" stroke-width=".5" fill="white" class="bi bi-badge-cc" viewBox="0 0 16 16">
+	  <path d="M3.708 7.755c0-1.111.488-1.753 1.319-1.753.681 0 1.138.47 1.186 1.107H7.36V7c-.052-1.186-1.024-2-2.342-2C3.414 5 2.5 6.05 2.5 7.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114H6.213c-.048.615-.496 1.05-1.186 1.05-.84 0-1.319-.62-1.319-1.727v-.743zm6.14 0c0-1.111.488-1.753 1.318-1.753.682 0 1.139.47 1.187 1.107H13.5V7c-.053-1.186-1.024-2-2.342-2C9.554 5 8.64 6.05 8.64 7.751v.747c0 1.7.905 2.73 2.518 2.73 1.314 0 2.285-.792 2.342-1.939v-.114h-1.147c-.048.615-.497 1.05-1.187 1.05-.839 0-1.318-.62-1.318-1.727v-.743z"/>
+	  <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+	</svg></div>
+	<div  id="b3" tabindex="0" title="show alternate content" class="playButton clickMeOverlay card col-8 d-flex flex-column px-sm-0 align-items-center">
+	<svg id="p3" title="Play Button" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-play" stroke="white" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+	</svg>
+	<svg id="r3" title="Reload Button" width="7vw" height="7vw"  viewBox="0 -1 16 16" class="bi bi-arrow-counterclockwise" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+	<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+	</svg></div></div>
+	<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+	<div id="t3" class="col-12 px-sm-0 transcript card"><p>Audio transcript: The laughter of the Stone Temple Monkey, like a hyena.</p></div>
+	<audio id="audio3" src="./AVPlayer/altImgs/03_stone_temple_monkey.mp3" type="audio/mpeg" alt="03_stone_temple_monkey.mp3">No Audio Support</audio>
+	<div class="xmplc card col-12 d-flex shadow-md px-sm-0"><div tabindex="0" class="card-body" id="caption3" style="display: block;">This panel also uses all three of the AVPlayer buttons but its object here is just to play an audio track.<br><br>The first button controls audio muting and the default is muted audio. This button enables or disables the audio playback for all of the panels.<br><br>The second button aids in the important area of content accessibility. It enables or disables the display of a &#34;closed caption&#34; or text transcript description of the audio content for all of the panels.<br><br>The third button is the PLAY button and it plays the audio without any animation content. The audio content can also be played by clicking the image.</div><div tabindex="0" class="card-body xmpla" id="altcap3" style="display: none;">This panel also uses all three of the AVPlayer buttons but in this case the third button is the RELOAD button and it reloads the audio. The audio content can also be reloaded by clicking the image.</div></div>
+	<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+	<!-- +++++++++++++++++++++++ -->
+
+<span class="clickMeOverlay" id="c4" title="Click to show alternate content">
+<picture class="playGIF src" id="pic4">
+	<source srcset = "./AVPlayer/04_isoblock-w205-h205.avif" media = "(min-width: 320px)" type = "image/avif">
+	<source srcset = "./AVPlayer/04_isoblock-w205-h205.webp" media = "(min-width: 320px)" type = "image/webp">
+	<source srcset = "./AVPlayer/04_isoblock-w205-h205.gif" media = "(min-width: 320px)" type = "image/gif">
+	<img tabindex="0" id="s4" class="playGIF src" src = "./AVPlayer/04_isoblock-w205-h205" alt = "The spinning Isoblock logo." style="display: block;">
+</picture>
+<picture class="playGIF alt" id="apic4">
+	<source srcset = "./AVPlayer/altImgs/04_isoblock-w183-h183.avif" media = "(min-width: 320px)" type = "image/avif">
+	<source srcset = "./AVPlayer/altImgs/04_isoblock-w183-h183.webp" media = "(min-width: 320px)" type = "image/webp">
+	<source srcset = "./AVPlayer/altImgs/04_isoblock-w183-h183.gif" media = "(min-width: 320px)" type = "image/gif">
+	<img tabindex="0" id="a4" class="playGIF alt" src = "./AVPlayer/altImgs/04_isoblock-w183-h183.gif" alt = "The rotationg Isoblock Sphere." style="display: none;">
+</picture>
+</span>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div class="row">
+	<div id="b4" tabindex="0" title="show alternate content" class="playButton clickMeOverlay card col-12 d-flex flex-column px-sm-0 align-items-center">
+	<svg id="p4" title="Play Button" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-play" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+	</svg>
+	<svg id="r4" title="Reload Button" width="7vw" height="7vw"  viewBox="0 -1 16 16" class="bi bi-arrow-counterclockwise" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+	<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+	</svg>
+</div></div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div class="xmplc card col-12 d-flex shadow-md px-sm-0">
+<div tabindex="0" class="card-body" id="caption4" style="display: block;"><p>This panel shows an animation already in play.<br><br> For our demo, this panel uses and displays just one of the AVPlayer buttons, and that PLAY button simply launches an alternate animation with no audio. The alternate content can also be displayed by clicking the image itself.</p>
+</div>
+<div tabindex="0" class="card-body xmpla" id="altcap4" style="display: none;"><p>This panel shows an alternate animation.<br><br>On this panel, the RELOAD button just unloads the animation and returns to the original page. The original image can also be reloaded by clicking this image.</p>
+</div>
+</div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br><br></div>
+<!-- ++++++++++++++++++++ -->
+
+<div class="row">
+	<div id="b5" tabindex="0" title="show alternate content" class="playButton clickMeOverlay card col-12 d-flex flex-column px-sm-0 align-items-center">
+	<svg id="p5" title="Play Button" width="8vw" height="8vw" viewBox="0 0 16 16" class="bi bi-play" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+	</svg>
+	<svg id="r5" title="Reload Button" width="7vw" height="7vw"  viewBox="0 -1 16 16" class="bi bi-arrow-counterclockwise" fill="white" stroke="blue" stroke-width=".5" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+	<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+	</svg>
+</div></div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<span class="clickMeOverlay" id="c5" title="Click to show alternate content">
+<picture class="playGIF src" id="pic5">
+	<img tabindex="0" id="s5" class="playGIF src" src = "./AVPlayer/1x1pixel-w001-h001.gif" alt = "The magic 1 pixel image." style="display: block;">
+</picture>
+<picture class="playGIF alt" id="apic4">
+	<source srcset = "./AVPlayer/altImgs/bubblegum-w348-h480.avif" media = "(min-width: 320px)" type = "image/avif">
+	<source srcset = "./AVPlayer/altImgs/bubblegum-w348-h480.webp" media = "(min-width: 320px)" type = "image/webp">
+	<source srcset = "./AVPlayer/altImgs/bubblegum-w348-h480.gif" media = "(min-width: 320px)" type = "image/gif">
+	<img tabindex="0" id="a5" class="playGIF alt" src = "./AVPlayer/altImgs/bubblegum-w348-h480.gif" alt = "The bubblegum girl." style="display: none;">
+</picture>
+</span>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br></div>
+<div class="xmplc card col-12 d-flex shadow-md px-sm-0">
+<div tabindex="0" class="card-body" id="caption5" style="display: block;"><p>For our demo, this panel uses and displays just one of the AVPlayer buttons, and that PLAY button simply launches an animation with no audio.</p>
+</div>
+<div tabindex="0" class="card-body xmpla" id="altcap5" style="display: none;"><p>On this panel, the RELOAD button just unloads the animation and returns to the original page. The image can also be unloaded by clicking the image.</p>
+</div>
+</div>
+<div class="card col-12 px-sm-0" style="opacity: 0;"><br><br></div>
+<!-- ++++++++++++++++++++ -->
+<script>
+async function supportsAvif() { // check for avif image support
+  const fallbackclass = 'no-avif'
+  if (!this.createImageBitmap) return fallbackclass
+
+  const avifData = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A='
+  avifblob = await fetch(avifData).then((r) => r.blob());
+  return createImageBitmap(avifblob)
+		.then(() => 'avif')
+		.catch(() => fallbackclass)
+}
+async () => {
+	avifspt = await supportsAvif();
+	document.body.classList.add(avifspt);
+	};
+</script>
+
+<!-- ====================== -->
+</article>
+<!--#include file="./includes/footer.shtml" -->
+</main>
+<!-- End of the web page display -->
+<!-- ====================== -->
+
+<!-- ++++++++++++++++++++ -->
+<!-- Java script section -->
+  <!-- jQuery -->
+  <script type="text/javascript" defer src="./js/jquery.min.js"></script>
+  <!-- core JavaScript -->
+  <script type="text/javascript" defer src="./js/bootstrap51.min.js"></script>
+  <script type="text/javascript" defer src="./js/Reader.js"></script>
+<script >
+  //conditionally enable/disable right mouse click //
+window.onload = ( function() {
+		//Disable cut copy paste
+		$('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+		});
+		//Disable mouse right click
+		$("body").on("contextmenu",function(e){
+			return false;
+		});
+		console.info("no context");
+})
+</script>
+
+<!-- End of the Java script section-->
+<!-- +++++++++++++++++++++++ -->
+
+<!-- End of the web page -->
+</body>
+</html>
