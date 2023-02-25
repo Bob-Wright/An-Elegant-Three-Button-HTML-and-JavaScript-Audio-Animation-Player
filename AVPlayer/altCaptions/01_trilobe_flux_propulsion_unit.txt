@@ -1,0 +1,1 @@
+This panel shows an animation of a shuttlecraft using the trilobe quantum flux concentrator propulsion unit.<br>On this panel, the button simply relaunches the animation.

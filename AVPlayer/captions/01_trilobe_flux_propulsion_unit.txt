@@ -1,0 +1,1 @@
+This panel shows the trilobe quantum flux concentrator propulsion unit. For our demo, the panel uses and displays just one of the AVPlayer buttons, and that button simply launches an animation with no audio.
